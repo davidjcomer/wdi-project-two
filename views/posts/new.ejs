@@ -1,0 +1,15 @@
+<form action="/posts" method="post">
+  <div class="control">
+    <label for="name">Caption</label>
+    <input name="name" id="name" placeholder="Caption here">
+  </div>
+
+  <div class="control">
+    <label for="name">Image (URL)</label>
+    <input name="image" id="name" placeholder="http://...">
+  </div>
+
+  <input type="text" name="addedBy" value='<%= locals.currentUser._id%>' hidden>
+
+  <button class="button">Post to Simpstagram</button>
+</form>

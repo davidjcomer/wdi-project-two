@@ -1,0 +1,11 @@
+<h1><%= username %></h1>
+<h2>Posts commented on</h2>
+
+<% comments.forEach(comment => { %>
+<p><strong><%= comment.name %></strong></p>
+<%})%>
+
+<h1>My Posts</h1>
+<% addedPosts.forEach(post => { %>
+  <p><strong><%= post.name %></strong></p>
+<%})%>

@@ -1,0 +1,11 @@
+<form action="/posts/<%= _id %>?_method=PUT" method="post">
+  <div class="control">
+    <label for="name">Caption</label>
+    <input name="caption" value="<%= caption %>" id="name" placeholder="Name here">
+  </div>
+  <div class="control">
+    <label for="name">Image (URL)</label>
+    <input name="image" value="<%= image %>" id="name" placeholder="http://...">
+  </div>
+  <button>Update post</button>
+</form>

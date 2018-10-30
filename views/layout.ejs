@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simpstagram</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </head>
+  <body>
+    <header>
+      <body>
+        <nav class="navbar is-primary">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="/" style="font-weight:bold;">
+                Simpstagram
+              </a>
+              <span class="navbar-burger burger" data-target="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+
+            <div id="navMenu" class="navbar-menu">
+              <div class="navbar-end">
+                <a href="/" class="navbar-item is-active">Home</a>
+                <a href="/about" class="navbar-item">About</a>
+                <a href="/posts/new" class="navbar-item">Post</a>
+                <a href="/posts" class="navbar-item">Feed</a>
+                <% if (locals.isLoggedIn) { %>
+                  <a href="/logout" class="navbar-item">Log Out<strong><%= locals.currentUser.username %></strong></a>
+                  <% } else { %>
+                    <a href="/login" class="navbar-item">Log In</a>
+                    <a href="/register" class="navbar-item">Sign Up</a>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+
+            </nav>
+
+            <script type="text/javascript">
+            (function() {
+              var burger = document.querySelector('.burger');
+              var nav = document.querySelector('#'+burger.dataset.target);
+              burger.addEventListener('click', function(){
+                burger.classList.toggle('is-active');
+                nav.classList.toggle('is-active');
+              });
+            })();
+            </script>
+          </body>
+    </header>
+
+    <%- body %>
+
+    <footer>
+      <p>Made with 🍩 by Professor Frink</p>
+    </footer>
+  </body>
+</html>
