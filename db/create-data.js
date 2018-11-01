@@ -89,9 +89,9 @@ User
         addedBy: users[0]
       },
       {
-        image: 'https://marvellouscutouts.co.uk/wp-content/uploads/2017/10/Marge.jpg',
-        caption: 'Felt cute, might delete later',
-        addedBy: users[1]
+        image: 'https://i.imgur.com/U9Oh6up.png',
+        caption: 'Tuesdays, am I right?',
+        addedBy: users[8]
       },
       {
         image: 'https://i.imgur.com/ZCojTVu.png',
@@ -99,14 +99,14 @@ User
         addedBy: users[2]
       },
       {
+        image: 'https://i.imgur.com/y81yADD.png',
+        caption: 'On the local news again. No biggie.',
+        addedBy: users[10]
+      },
+      {
         image: 'https://i.imgur.com/eAq9L85.png',
         caption: 'My Grandkids bought me the new iPhone for Christmas',
         addedBy: users[4]
-      },
-      {
-        image: 'https://i.imgur.com/U9Oh6up.png',
-        caption: 'Tuesdays, am I right?',
-        addedBy: users[8]
       },
       {
         image: 'https://i.imgur.com/392yShF.jpg',
@@ -114,9 +114,24 @@ User
         addedBy: users[7]
       },
       {
+        image: 'https://i.imgur.com/u0ufcv6.png',
+        caption: 'Left Power.',
+        addedBy: users[9]
+      },
+      {
+        image: 'https://i.imgur.com/iPj7V23.jpg',
+        caption: 'Felt cute. Might delete later',
+        addedBy: users[9]
+      },
+      {
         image: 'https://i.imgur.com/QHZNShP.png',
         caption: 'Happy Cinco de Mayo everybody',
         addedBy: users[0]
+      },
+      {
+        image: 'https://i.imgur.com/XLCnh6i.png',
+        caption: 'Community service is no cakewalk.',
+        addedBy: users[10]
       },
       {
         image: 'https://i.imgur.com/XCeyem7.jpg',
@@ -124,19 +139,9 @@ User
         addedBy: users[8]
       },
       {
-        image: 'https://i.imgur.com/dfrYxuA.png',
-        caption: 'Even for the most innocent amongst us, life is a terminal illness',
-        addedBy: users[3]
-      },
-      {
         image: 'https://i.imgur.com/FbxfDWa.png',
         caption: 'Simpson eh?',
         addedBy: users[5]
-      },
-      {
-        image: 'https://i.imgur.com/u0ufcv6.png',
-        caption: 'Left Power.',
-        addedBy: users[9]
       },
       {
         image: 'https://i.imgur.com/o5MNtDU.png',
@@ -159,26 +164,10 @@ User
         addedBy: users[10]
       },
       {
-        image: 'https://i.imgur.com/iPj7V23.jpg',
-        caption: 'Felt cute. Might delete later',
-        addedBy: users[9]
-      },
-      {
-        image: 'https://i.imgur.com/y81yADD.png',
-        caption: 'On the local news again. No biggie.',
-        addedBy: users[10]
-      },
-      {
         image: 'https://i.imgur.com/Q6wrQUJ.png',
         caption: '#tbt to Praiseland. God is good.',
         addedBy: users[9]
-      },
-      {
-        image: 'https://i.imgur.com/XLCnh6i.png',
-        caption: 'Community service is no cakewalk.',
-        addedBy: users[10]
       }
-
     ])
       .then(result => {
         console.log(`Posted ${result.length} posts to Simpstagram!`);
