@@ -32,15 +32,15 @@
           <div class="columns is-multiline">
 
             <div class='column is-4 has-text-centered'>
-              <p class='stat-val'>100</p>
+              <p class='stat-val'><%= user.addedPosts.length %></p>
               <p class='stat-key'>posts</p>
             </div>
             <div class='column is-4 has-text-centered'>
-              <p class='stat-val'>100</p>
+              <p class='stat-val'><%= user.followers.length %></p>
               <p class='stat-key'>followers</p>
             </div>
             <div class='column is-4 has-text-centered'>
-              <p class='stat-val'>100</p>
+              <p class='stat-val'><%= user.profilesFollowing.length %></p>
               <p class='stat-key'>following</p>
             </div>
           </div>
@@ -51,7 +51,7 @@
 
     <!-- Followed By-->
     <div class ="columns is-multiline">
-      <% user.profilesFollowedBy.forEach(user => { %>
+      <% user.followers.forEach(user => { %>
         <div class="column is-3">
           <div class='columns is-multiline is-centered'>
             <div class="column is-12">

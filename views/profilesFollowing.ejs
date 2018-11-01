@@ -32,15 +32,15 @@
           <div class="columns is-multiline">
 
             <div class='column is-4 has-text-centered'>
-              <p class='stat-val'>398</p>
+              <p class='stat-val'><%= user.addedPosts.length %></p>
               <p class='stat-key'>posts</p>
             </div>
             <div class='column is-4 has-text-centered'>
-              <p class='stat-val'><%= user.numberOfFollowers %></p>
+              <p class='stat-val'><%= user.followers.length %></p>
               <p class='stat-key'>followers</p>
             </div>
             <div class='column is-4 has-text-centered'>
-
+              <p class='stat-val'><%= user.profilesFollowing.length %></p>
               <p class='stat-key'>following</p>
             </div>
           </div>

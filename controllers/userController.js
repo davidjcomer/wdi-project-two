@@ -31,7 +31,7 @@ function followProfile(req, res, next) {
 function profilesFollowingIndex(req, res, next) {
   User
     .findById(req.params.id)
-    .populate('profilesFollowing')
+    .populate('comments addedPosts profilesFollowing followers')
     .then(user => {
       console.log('-=-=->', user);
       res.render('profilesFollowing', { user });
@@ -45,7 +45,7 @@ function profilesFollowingIndex(req, res, next) {
 function followersIndex(req, res, next) {
   User
     .findById(req.params.id)
-    .populate('followers')
+    .populate('comments addedPosts profilesFollowing followers')
     .then(user => {
       console.log('-=-=->', user);
       res.render('followers', { user });

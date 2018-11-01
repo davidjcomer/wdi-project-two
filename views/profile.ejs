@@ -32,7 +32,7 @@
           <div class="columns is-multiline">
 
             <div class='column is-4 has-text-centered'>
-              <p class='stat-val'>398</p>
+              <p class='stat-val'><%= user.addedPosts.length %></p>
               <p class='stat-key'>posts</p>
             </div>
             <!--People this user is followed by -->
@@ -41,12 +41,12 @@
               <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/followers">followers</a></p>
             </div>
 
+            <!--People this user is following -->
             <div class='column is-4 has-text-centered'>
               <p class='stat-val'><%= user.profilesFollowing.length %></p>
               <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/profilesFollowing">following</a></p>
             </div>
 
-            <!--People this user is following -->
 
           </div>
         </div>
