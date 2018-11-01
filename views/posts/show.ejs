@@ -1,32 +1,83 @@
-<main>
-  <h1><%= caption %></h1>
-  <img class="show-image" src="<%= image %>"/>
-  <% if (locals.isLoggedIn) { %>
-    <div class="buttons">
-    <form action="/posts/<%= _id %>?_method=DELETE" method="post">
-    <button class="button">Delete</button>
-    </form>
-    <a class="button" href="/posts/<%= _id %>/edit">Edit</a>
-    </div>
-    <div>
-      <% comments.forEach(comment => { %>
-        <div>
-          <span style="font-weight: bold;"><%= comment.user.profilePicture %></span>
-          <span style="font-weight: bold;"><%= comment.user.username %></span>
-          <br>
-          <span><%= comment.content %></span>
-          <form class="delete-form" action="/posts/<%= _id %>?_method=DELETE" method="POST">
-            <button class="delete-comment-button">X</button>
-          </form>
+<div class='columns is-multiline is-centered'>
+  <div class="card column is-7">
+    <div class='columns is-multiline is-centered'>
+      <div class="column is-8">
+        <img class="show-image" src="<%= image %>"/>
+      </div>
+
+      <!-- Current User Profile Picture-->
+      <div class="card column is-4">
+        <div class='columns is-multiline is-centered'>
+          <div class="column is-3">
+            <div class='columns is-multiline is-centered'>
+              <div class="column is-12">
+            <% if (locals.isLoggedIn) { %>
+              <img src="<%= locals.currentUser.profilePicture %>" alt="">
+            <% }%>
+              </div>
+            </div>
+          </div>
+
+          <!-- Current User Username & Location-->
+          <div class="column is-9">
+            <div class='columns is-multiline is-centered'>
+              <div class="column is-12">
+            <% if (locals.isLoggedIn) { %>
+              <strong><%= locals.currentUser.username %></strong>
+            <% }%>
+              <br>
+              Springfield, U.S.A
+              </div>
+            </div>
+          </div>
         </div>
-      <% }) %>
-    </div>
-    <div>
-      <form method="POST" action="/posts/<%= _id %>/comments">
-        <textarea name="content"></textarea>
-        <input name="user" type="hidden" value="<%= locals.currentUser.id %>"/>
-        <button>Leave a Comment</button>
-      </form>
-    </div>
-  <% } %>
-</main>
+
+        <!-- Poster Username-->
+        <a href="<%= addedBy._id %>"><strong><%= addedBy.username %></strong></a><br>
+        <h1><%= caption %></h1>
+        <% if (locals.isLoggedIn) { %>
+          <div class="buttons">
+            <form action="/posts/<%= _id %>?_method=DELETE" method="post">
+              <button class="button">Delete</button>
+            </form>
+            <a class="button" href="/posts/<%= _id %>/edit">Edit</a>
+          </div>
+
+        <!-- Poster Comment-->
+        <div class ="columns is-multiline">
+          <% comments.forEach(comment => { %>
+            <div class="column is-3">
+              <div class='columns is-multiline is-centered'>
+                <div class="column is-12">
+                  <img src="<%= comment.user.profilePicture %>" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="column is-9">
+              <div class='columns is-multiline is-centered'>
+                <div class="column is-12">
+                  <span style="font-weight: bold;"><%= comment.user.username %></span>
+                  <br>
+                  <span><%= comment.content %></span>
+                  <form class="delete-form" method="POST" action="/posts/<%= _id %>/comments/<%= comment._id %>?_method=DELETE">
+                    <button class="delete-comment-button">X</button>
+                  </form>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+
+              <div>
+                <form method="POST" action="/posts/<%= _id %>/comments">
+                  <textarea name="content"></textarea>
+                  <input name="user" type="hidden" value="<%= locals.currentUser.id %>"/><br>
+                  <button>Leave a Comment</button>
+                </form>
+              </div>
+              <% } %>
+            </div>
+          </div>
+
+        </div>
+      </div>

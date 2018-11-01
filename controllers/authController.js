@@ -8,6 +8,7 @@ function registerFormRoute(req, res) {
 function registerRoute(req, res) {
   // Create a new user
   // req.body contains the data from the registration form
+  console.log(req.body);
   User.create(req.body)
     .then(result => {
       console.log('User created', result);

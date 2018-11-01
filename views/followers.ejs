@@ -1,0 +1,70 @@
+<div class='columns is-multiline is-centered'>
+  <div class='column is-8 container profile'>
+    <div class='section profile-heading'>
+      <div class='columns is-mobile is-multiline'>
+        <div class='column is-3'>
+          <span class='header-icon user-profile-image'>
+            <img class='is-rounded' alt='' src='<%= user.profilePicture %>'>
+          </span>
+        </div>
+
+        <div class="column is-9">
+          <div class='column is-12 name'>
+            <p>
+              <span class='title is-bold'><%= user.username %></span>
+              <br>
+            </p>
+            <p class='tagline'>
+              <%= user.bio %>
+            </p>
+
+            <div class="column is-12-desktop has-text-centered">
+              <% if(locals.isLoggedIn) { %>
+                <% if(locals.currentUser.username !== user.username && !profilesFollowedBy.filter(id => id.toString() === locals.currentUser._id.toString()).length) { %>
+                  <form style="display: inline-block" action='/user/<%= _id %>/follow/<%= locals.currentUser._id %>' method='POST'>
+                    <button class="button is-rounded">Follow</button>
+                  </form>
+                  <% } %>
+                  <% } %>
+            </div>
+          </div>
+
+          <div class="columns is-multiline">
+
+            <div class='column is-4 has-text-centered'>
+              <p class='stat-val'>100</p>
+              <p class='stat-key'>posts</p>
+            </div>
+            <div class='column is-4 has-text-centered'>
+              <p class='stat-val'>100</p>
+              <p class='stat-key'>followers</p>
+            </div>
+            <div class='column is-4 has-text-centered'>
+              <p class='stat-val'>100</p>
+              <p class='stat-key'>following</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Followed By-->
+    <div class ="columns is-multiline">
+      <% user.profilesFollowedBy.forEach(user => { %>
+        <div class="column is-3">
+          <div class='columns is-multiline is-centered'>
+            <div class="column is-12">
+              <img src="<%= user.profilePicture %>" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-9">
+          <div class='columns is-multiline is-centered'>
+            <div class="column is-12">
+              <span style="font-weight: bold;"><%= user.username %></span>
+            </div>
+            <% }) %>
+          </div>
+        </div>

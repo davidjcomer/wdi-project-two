@@ -1,35 +1,58 @@
-<div class='columns'>
-  <div class='container profile'>
+<div class='columns is-multiline is-centered'>
+  <div class='column is-8 container profile'>
     <div class='section profile-heading'>
       <div class='columns is-mobile is-multiline'>
-        <div class='column is-2'>
+        <div class='column is-3'>
           <span class='header-icon user-profile-image'>
-            <img alt='' src='<%= profilePicture %>'>
+            <img class='is-rounded' alt='' src='<%= user.profilePicture %>'>
           </span>
         </div>
-        <div class='column is-4-tablet is-10-mobile name'>
-          <p>
-            <span class='title is-bold'><%= username %></span>
-            <br>
-          </p>
-          <p class='tagline'>
-            <%= bio %>
-          </p>
-        </div>
-        <div class='column is-2-tablet is-4-mobile has-text-centered'>
-          <p class='stat-val'>398</p>
-          <p class='stat-key'>posts</p>
-        </div>
-        <div class='column is-2-tablet is-4-mobile has-text-centered'>
-          <p class='stat-val'>382</p>
-          <p class='stat-key'>followers</p>
-        </div>
-        <div class='column is-2-tablet is-4-mobile has-text-centered'>
-          <p class='stat-val'>999</p>
-          <p class='stat-key'>following</p>
+
+        <div class="column is-9">
+          <div class='column is-12 name'>
+            <p>
+              <span class='title is-bold'><%= user.username %></span>
+              <br>
+            </p>
+            <p class='tagline'>
+              <%= user.bio %>
+            </p>
+
+            <div class="column is-12-desktop has-text-centered">
+              <% if(locals.isLoggedIn) { %>
+                <% if(locals.currentUser.username !== user.username && !user.profilesFollowing.filter(id => id.toString() === locals.currentUser._id.toString()).length) { %>
+                  <form style="display: inline-block" action='/user/<%= user._id %>/follow/<%= locals.currentUser._id %>' method='POST'>
+                    <button class="button is-rounded">Follow</button>
+                  </form>
+                  <% } %>
+                  <% } %>
+            </div>
+          </div>
+
+          <div class="columns is-multiline">
+
+            <div class='column is-4 has-text-centered'>
+              <p class='stat-val'>398</p>
+              <p class='stat-key'>posts</p>
+            </div>
+            <!--People this user is followed by -->
+            <div class='column is-4 has-text-centered'>
+              <p class='stat-val'><%= user.followers.length %></p>
+              <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/followers">followers</a></p>
+            </div>
+
+            <div class='column is-4 has-text-centered'>
+              <p class='stat-val'><%= user.profilesFollowing.length %></p>
+              <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/profilesFollowing">following</a></p>
+            </div>
+
+            <!--People this user is following -->
+
+          </div>
         </div>
       </div>
     </div>
+
 
     <div class='profile-options is-fullwidth'>
       <div class='tabs is-fullwidth is-medium'>
@@ -62,27 +85,19 @@
       </div>
     </div>
 
-<!--
-    <% comments.forEach(comment => { %>
-    <p><strong><%= comment.name %></strong></p>
-    <%})%>
--->
-
-    <!-- Posts -->
     <div class='columns is-mobile'>
-      <% addedPosts.forEach(post => { %>
+      <% user.addedPosts.forEach(post => { %>
         <div class='column is-4-tablet is-4-mobile'>
-          <div class='card'>
+          <div class='profileCard'>
             <div class='card-image'>
               <figure class='image is-4by4'>
                 <img alt='' src='<%= post.image %>'>
-                <%# make this an a ref that links to the post %>
               </figure>
             </div>
           </div>
           <br>
         </div>
         <%})%>
+      </div>
     </div>
   </div>
-</div>

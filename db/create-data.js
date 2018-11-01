@@ -58,7 +58,7 @@ const userData = [{
   email: 'bgumble@simpstagram.com',
   password: 'pass'
 }, {
-  username: 'ekrabappel',
+  username: 'ednakrabappel',
   bio: 'I hate my job.',
   profilePicture: 'https://i.imgur.com/xdzJsjL.png',
   email: 'ekrabappel@simpstagram.com',

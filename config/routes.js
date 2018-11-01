@@ -27,8 +27,6 @@ router.get('/about', function(req, res) {
 // PROFILE route
 router.get('/profile/:id', secureRoute, userController.userShowRoute);
 
-// // Home Route
-// router.get('/', postController.homeRoute);
 
 // INDEX Route
 router.get('/posts', postController.indexRoute);
@@ -54,4 +52,17 @@ router.delete('/posts/:id', secureRoute, postController.deleteRoute);
 // Comment CREATE route
 router.post('/posts/:postId/comments', secureRoute, commentController.commentCreateRoute);
 
+// Comment CREATE route
+router.delete('/posts/:postId/comments/:commentId', secureRoute, commentController.commentDeleteRoute);
+
+//FOLLOW ROUTE
+router.post('/user/:userId/follow/:currentUserId', secureRoute, userController.followProfile);
+
+//Route to show all the users who we are following
+router.get('/profile/:id/profilesFollowing', secureRoute, userController.profilesFollowingIndex);
+
+//Route to show all the users who are following us
+router.get('/profile/:id/followers', secureRoute, userController.followersIndex);
+
+//LIKE ROUTE
 module.exports = router;
