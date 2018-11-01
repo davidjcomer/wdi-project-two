@@ -1,6 +1,7 @@
 const postController = require('../controllers/postController');
 const authController = require('../controllers/authController');
 const commentController = require('../controllers/commentController');
+const userController = require('../controllers/userController');
 const secureRoute = require('../lib/secureRoute');
 const router = require('express').Router();
 
@@ -23,12 +24,16 @@ router.get('/about', function(req, res) {
   res.render('about');
 });
 
+// PROFILE route
+router.get('/profile/:id', secureRoute, userController.userShowRoute);
+
+// // Home Route
+// router.get('/', postController.homeRoute);
+
 // INDEX Route
 router.get('/posts', postController.indexRoute);
 
-// NEW Route: NOTE: This must appear
-// above the show route, otherwise the show route
-// will load with id = 'new'
+// NEW Route: must appear above the show route, otherwise the show route will load with id = 'new'
 router.get('/posts/new', secureRoute, postController.newRoute);
 
 // Listen for POST requests to /posts

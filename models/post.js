@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
   image: String,
-  username: String,
   caption: String,
+  time: { type: Date, default: Date.now},
   addedBy: { type: mongoose.Schema.ObjectId, ref: 'User'},
   comments: [{
-    username: String,
     user: { type: mongoose.Schema.ObjectId, ref: 'User'},
     content: String
   }]

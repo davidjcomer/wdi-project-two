@@ -1,6 +1,86 @@
-<form class="" action="/register" method="post">
-  <input type="text" name="email" placeholder="e-mail">
+<section class="section">
+  <div class="container has-text-centered">
+    <h1 class="title">
+      Sign Up to Simpstagram
+    </h1>
+    <p></p>
+    <p></p>
+    <h2 class="subtitle">
+      Hey-diddly-ho Neighbourinos.<br>
+      Enter your information below and start connecting with everyone in Springfield.
+    </h2>
+    <p></p>
+    <p></p>
+    <form class="" action="/register" method="post">
+      <div class="field is-vertical">
+        <div class="field-body">
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="text" name="username" placeholder="username">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="email" name="email" placeholder="e-mail">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="text" name="password" placeholder="password">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea" type="text" name="bio" placeholder="Your Bio"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input class="input" type="text" name="profilePicture" placeholder="Image Url Here">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button>
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+<%# <form class="" action="/register" method="post">
   <input type="text" name="username" placeholder="username">
+  <input type="text" name="email" placeholder="e-mail">
   <input type="text" name="password" placeholder="password">
+  <input type="text" name="bio" placeholder="bio">
+  <input type="text" name="profilePicture" placeholder="Image Url Here">
   <button>Register</button>
-</form>
+</form> %>

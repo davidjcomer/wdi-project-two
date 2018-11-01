@@ -1,54 +1,33 @@
-<body>
-  <div class="navbar is-transparent">
-    <div class="navbar-brand">
-      <a class="navbar-item">
-        <img src="https://heykawaii.com/image/cache/catalog/Artes%20/marcas/THE-SIMPSONS-LOGO-600x315.jpg" width="112" height="28" alt="Bulma">
-      </a>
-    </div>
-    <div class="navbar-menu is-centered">
-      <div class="navbar-item">
-        <div class="control has-icons-left">
-          <input class="input is-small has-text-centered" type="text" placeholder="Search">
-          <span class="icon is-left is-small">
-            <i class="material-icons fas fa-search"></i>
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="navbar-item is-flex-touch">
-      <a class="navbar-item">
-        <i class="material-icons fas fa-search"></i>
-      </a>
-      <a class="navbar-item">
-        <i class="material-icons far fa-heart"></i>
-      </a>
-      <a class="navbar-item">
-        <i class="material-icons far fa-user"></i>
-      </a>
-    </div>
-  </div>
+<main>
   <div class="columns body-columns">
     <div class="column is-half is-offset-one-quarter">
       <% posts.forEach(post => {%>
         <div class="card">
+          <!-- Post Header -->
           <div class="header">
             <div class="media">
               <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://source.unsplash.com/random/96x96" alt="Placeholder image">
+                <figure class="profile-pic image is-48x48">
+                  <img src="<%= post.addedBy.profilePicture %>" alt="Placeholder image">
                 </figure>
               </div>
               <div class="media-content">
-                <p class="title is-4">Homer Simpson</p>
-                <p class="subtitle is-6">@homerjsimpson</p>
+                <a href="/profile/<%= post.addedBy._id %>">
+                  <p class="title is-6"><%= post.addedBy.username %></p>
+                </a>
+                <p class="subtitle is-6">Springfield, U.S.A</p>
               </div>
             </div>
           </div>
+          <br>
+
+          <!-- Post Image -->
           <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="<%= post.image %>" alt="Posted by @SimpsonsUser">
-            </figure>
+            <a href="/posts/<%= post.id %>" class="image is-4by4">
+              <img src="<%= post.image %>">
+            </a>
           </div>
+          <!-- Post Icons -->
           <div class="card-content">
             <div class="level is-mobile">
               <div class="level-left">
@@ -66,91 +45,81 @@
                 </div>
               </div>
             </div>
-
+            <!-- Post Header -->
             <div class="content">
-              <p>
-                <strong>32 Likes</strong>
-              </p>
-              <%= post.caption %>
-              <a>@simpstagramUser</a>.
-              <a href="#">#hashtag</a>
-              <a href="#">#simpstagram</a>
-              <br>
-              <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="columns is-mobile">
-              <div class="column is-11">
-                <div class="field">
-                  <div class="control">
-                    <input class="input is-medium" type="text" placeholder="Add a comment . . .">
-                  </div>
-                </div>
-              </div>
-              <div class="column has-text-centered">
-                <button class="button">
-                </button>
+              <div class="media-content">
+                <a class="title is-6" href="/profile/<%= post.addedBy._id %>"><%= post.addedBy.username %></a>
+                <br>
+                <p>
+                  <strong>32 Likes</strong>
+                </p>
+                <%= post.caption %>
+                <a>@simpstagramUser</a>.
+                <a href="#">#hashtag</a>
+                <a href="#">#simpstagram</a>
+                <br>
+                <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
               </div>
             </div>
           </div>
-          <% }) %>
+          <br>
         </div>
+      <% }) %>
+  </div>
 
-
-
-
-        <%# <aside class="column is-3 is-hidden-mobile">
-          <div class="panel">
-            <p class="panel-heading has-text-centered">Main Heading Goes Here</p>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fa fa-home"></i>
-              </span>
-              <span class="name">Dashboard</span>
-            </a>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fa fa-map-marker"></i>
-              </span>
-              <span class="name">Activity</span>
-            </a>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fa fa-th-list"></i>
-              </span>
-              <span class="name">Timeline</span>
-            </a>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="name">Folders</span>
-            </a>
-            <hr>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              <span class="name">Comments</span>
-            </a>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fa fa-envelope-o"></i>
-              </span>
-              <span class="name">Mail</span>
-            </a>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fa fa-rss"></i>
-              </span>
-              <span class="name">RSS Feed</span>
-            </a>
-            <a class="panel-block">
-              <span class="panel-icon">
-                <i class="fa fa-database"></i>
-              </span>
-              <span class="name">Data</span>
-            </a>
-          </div>
-        </aside> %>
+  <aside class="column is-3 is-hidden-mobile">
+    <div class="panel">
+      <p class="panel-heading has-text-centered">username</p>
+      <a href="/profile" class="navbar-item">
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-home"></i>
+        </span>
+        <span class="name">Item</span>
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-map-marker"></i>
+        </span>
+        <span class="name">Item</span>
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-th-list"></i>
+        </span>
+        <span class="name">Item</span>
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-folder-o"></i>
+        </span>
+        <span class="name">Item</span>
+      </a>
+      <hr>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-comment-o"></i>
+        </span>
+        <span class="name">Item</span>
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-envelope-o"></i>
+        </span>
+        <span class="name">Item</span>
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-rss"></i>
+        </span>
+        <span class="name">Item</span>
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-database"></i>
+        </span>
+        <span class="name">Item</span>
+      </a>
+    </div>
+  </aside>
+</main>

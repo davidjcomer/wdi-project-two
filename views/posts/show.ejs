@@ -11,15 +11,20 @@
     <div>
       <% comments.forEach(comment => { %>
         <div>
-          <span style="font-weight: bold;"><%= comment.username %></span>
+          <span style="font-weight: bold;"><%= comment.user.profilePicture %></span>
+          <span style="font-weight: bold;"><%= comment.user.username %></span>
+          <br>
           <span><%= comment.content %></span>
+          <form class="delete-form" action="/posts/<%= _id %>?_method=DELETE" method="POST">
+            <button class="delete-comment-button">X</button>
+          </form>
         </div>
       <% }) %>
     </div>
     <div>
       <form method="POST" action="/posts/<%= _id %>/comments">
         <textarea name="content"></textarea>
-        <input name="username" type="hidden" value="<%= locals.currentUser.username %>"/>
+        <input name="user" type="hidden" value="<%= locals.currentUser.id %>"/>
         <button>Leave a Comment</button>
       </form>
     </div>

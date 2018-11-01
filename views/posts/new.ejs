@@ -1,15 +1,51 @@
-<form action="/posts" method="post">
-  <div class="control">
-    <label for="name">Caption</label>
-    <input name="name" id="name" placeholder="Caption here">
+<!-- Contact -->
+<section class="section columns" id="contact">
+  <div class="container">
+    <div class="section-heading">
+      <h3 class="title is-2">Post to Simpstagram</h3>
+    </div>
+    <br>
+
+    <div class="columns">
+      <div class="column is-6 is-offset-3">
+        <div class="box">
+
+          <form action="/posts" method="post">
+            <div class="field">
+              <label class="label" for="name">Caption</label>
+              <div class="control">
+                <input class="input" type="text" name="name" id="name" placeholder="Caption here">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-message"></i>
+                </span>
+              </div>
+            </div>
+
+
+            <div class="control">
+              <label class="label" for="name">Image (URL)>Email</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" name="image" id="name" placeholder="http://...">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-image"></i>
+                </span>
+              </div>
+            </div>
+            <br>
+
+            <div class="field is-grouped has-text-centered">
+              <div class="control">
+                <input type="text" name="addedBy" value='<%= locals.currentUser._id%>' hidden>
+                <button class="button is-link is-large"><span class="icon">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span>Post</span>
+              </button>
+              <br>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="control">
-    <label for="name">Image (URL)</label>
-    <input name="image" id="name" placeholder="http://...">
-  </div>
-
-  <input type="text" name="addedBy" value='<%= locals.currentUser._id%>' hidden>
-
-  <button class="button">Post to Simpstagram</button>
-</form>
+</section>

@@ -71,18 +71,19 @@
     <!-- Posts -->
     <div class='columns is-mobile'>
       <% addedPosts.forEach(post => { %>
-        <div class='column is-4-tablet is-4-mobile'>
+        <div class='column is-half-tablet is-offset-one-quarter is-12-mobile'>
           <div class='card'>
             <div class='card-image'>
               <figure class='image is-4by4'>
                 <img alt='' src='<%= post.image %>'>
-                <%# make this an a ref that links to the post %>
               </figure>
             </div>
           </div>
           <br>
         </div>
         <%})%>
+
+
     </div>
   </div>
 </div>

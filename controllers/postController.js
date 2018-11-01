@@ -1,14 +1,33 @@
 const Post = require('../models/post');
 
+// function homeRoute(req, res, next) {
+//   Post
+//     .find()
+//     .populate('addedBy')
+//     .then(function(result) {
+//       const postObject = {
+//         posts: result
+//       };
+//       console.log('----->', result);
+//       res.render('home', postObject);
+//     })
+//     .catch(err => {
+//       console.log('There was an error', err);
+//       next();
+//     });
+// }
+
 function indexRoute(req, res, next) {
   // Find all the posts, then render an ejs file:
   // Find returns an array
   Post
     .find()
+    .populate('addedBy')
     .then(function(result) {
       const postObject = {
         posts: result
       };
+      console.log('----->', result);
       res.render('posts/index', postObject);
     })
     .catch(err => {
@@ -39,6 +58,7 @@ function showRoute(req, res, next) {
     .findById(req.params.id)
     .populate('comments.user addedBy')
     .then(result => {
+      console.log('-=-=->', result);
       res.render('posts/show', result);
     })
     .catch(err => {
@@ -86,6 +106,7 @@ function deleteRoute(req, res, next) {
 }
 
 module.exports = {
+  // homeRoute: homeRoute,
   indexRoute: indexRoute,
   showRoute: showRoute,
   newRoute: newRoute,

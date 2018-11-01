@@ -1,6 +1,6 @@
 const User = require('../models/user');
 
-function userShow(req, res, next) {
+function userShowRoute(req, res, next) {
   User
     .findById(req.params.id)
     .populate('comments addedPosts')
@@ -14,6 +14,21 @@ function userShow(req, res, next) {
     });
 }
 
+// function followProfileRoute(req, res, next) {
+// User
+//   .findById(req.params.id)
+//   .populate('comments addedPosts')
+//   .then(user => {
+//     console.log(user.comments);
+//     res.render('profile', user);
+//   })
+//   .catch(err => {
+//     console.log('There was an error', err);
+//     next();
+//   });
+// }
+
 module.exports = {
-  userShow: userShow
+  userShowRoute: userShowRoute
+  // followProfileRoute: followProfileRoute
 };
