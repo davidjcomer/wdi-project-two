@@ -4,7 +4,11 @@ const userSchema = mongoose.Schema({
   username: String,
   email: { type: String, unique: true },
   password: String,
+  name: String,
   bio: String,
+  location: String,
+  profession: String,
+  employer: String,
   profilePicture: { type: String, default: 'https://i.imgur.com/hIdYQy0.jpg' },
   profilesFollowing: [{ type: mongoose.Schema.ObjectId, ref: 'User'}]
 });

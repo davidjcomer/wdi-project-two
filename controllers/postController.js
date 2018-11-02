@@ -1,21 +1,5 @@
 const Post = require('../models/post');
 
-// function homeRoute(req, res, next) {
-//   Post
-//     .find()
-//     .populate('addedBy')
-//     .then(function(result) {
-//       const postObject = {
-//         posts: result
-//       };
-//       console.log('----->', result);
-//       res.render('home', postObject);
-//     })
-//     .catch(err => {
-//       console.log('There was an error', err);
-//       next();
-//     });
-// }
 
 function indexRoute(req, res, next) {
   // Find all the posts, then render an ejs file:
@@ -29,6 +13,24 @@ function indexRoute(req, res, next) {
       };
       console.log('----->', result);
       res.render('posts/index', postObject);
+    })
+    .catch(err => {
+      console.log('There was an error', err);
+      next();
+    });
+}
+function exploreRoute(req, res, next) {
+  // Find all the posts, then render an ejs file:
+  // Find returns an array
+  Post
+    .find()
+    .populate('addedBy')
+    .then(function(result) {
+      const postObject = {
+        posts: result
+      };
+      console.log('----->', result);
+      res.render('posts/explore', postObject);
     })
     .catch(err => {
       console.log('There was an error', err);
@@ -106,8 +108,8 @@ function deleteRoute(req, res, next) {
 }
 
 module.exports = {
-  // homeRoute: homeRoute,
   indexRoute: indexRoute,
+  exploreRoute: exploreRoute,
   showRoute: showRoute,
   newRoute: newRoute,
   createRoute: createRoute,

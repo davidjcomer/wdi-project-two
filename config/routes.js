@@ -27,9 +27,11 @@ router.get('/about', function(req, res) {
 // PROFILE route
 router.get('/profile/:id', secureRoute, userController.userShowRoute);
 
-
 // INDEX Route
 router.get('/posts', postController.indexRoute);
+
+// EXPLORE Route
+router.get('/explore', postController.exploreRoute);
 
 // NEW Route: must appear above the show route, otherwise the show route will load with id = 'new'
 router.get('/posts/new', secureRoute, postController.newRoute);

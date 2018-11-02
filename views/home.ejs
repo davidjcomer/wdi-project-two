@@ -1,7 +1,75 @@
-<h1>Welcome to Simpstagram</h1>
-<h2>D'oh</h2>
-<% if (locals.isLoggedIn) { %>
-  <p>Welcome back <%= locals.currentUser.username %></p>
-<% } else { %>
-  <p>You must be logged in to post to Simpstagram</p>
-<% } %>
+<body>
+  <% if (locals.isLoggedIn) { %>
+    <section class="light is-info is-fullheight">
+      <div class="light-body">
+        <div class="container has-text-centered">
+          <div class="column is-6 is-offset-3">
+            <h1 class="title">
+              Welcome back <%= locals.currentUser.username %>
+            </h1><br>
+            <h2 class="subtitle">
+              Here's how the rest of Springfield sees you:
+            </h2>
+
+            <!-- User Profile-->
+            <div class="box columns is-multiline">
+              <!-- User Profile Picture-->
+              <div class="column is-4">
+                <div class='header-icon user-profile-image column is-12'>
+                  <img class='is-rounded' alt='' src='<%= locals.currentUser.profilePicture %>'>
+                </div>
+              </div>
+
+              <div class="column is-8">
+                <div class="columns is-multiline">
+                  <div class='column is-12 name'>
+                    <p>
+
+                      <span><i class="far fa-user"></i><strong> <%= locals.currentUser.username %></strong></span><br>
+                      <span><i class="fas fa-map-marker-alt"></i> <%= locals.currentUser.location %></span><br>
+                    </p>
+                  </div>
+
+                  <div class='column is-12 name'>
+                    <p>
+                      <span><i class="fas fa-briefcase"></i><strong> <%= locals.currentUser.profession %></strong></span><br>
+                      <span><i class="far fa-building"></i> <%= locals.currentUser.employer %></span><br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="columns is-multiline">
+                <div class="column is-12">
+                  <p class='card'>
+                    <em>"<%= locals.currentUser.bio %>"</em>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <% } else { %>
+
+
+      <section class="light is-info is-fullheight">
+        <div class="light-body">
+          <div class="container has-text-centered">
+            <div class="column is-6 is-offset-3">
+              <h1 class="title">
+                You must be logged in to post to Simpstagram
+              </h1><br>
+              <h2 class="subtitle">
+                Please <a href="/login">Sign In</a> Here
+              </h2>
+              <% } %>
+            </body>
+          </div>
+        </div>
+      </div>
+    </section>

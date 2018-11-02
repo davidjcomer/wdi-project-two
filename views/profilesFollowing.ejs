@@ -37,17 +37,16 @@
             </div>
             <div class='column is-4 has-text-centered'>
               <p class='stat-val'><%= user.followers.length %></p>
-              <p class='stat-key'>followers</p>
+              <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/followers">followers</a></p>
             </div>
             <div class='column is-4 has-text-centered'>
               <p class='stat-val'><%= user.profilesFollowing.length %></p>
-              <p class='stat-key'>following</p>
+              <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/profilesFollowing">following</a></p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
 
     <!-- Followed By-->
     <div class ="columns is-multiline">

@@ -1,0 +1,48 @@
+<!-- Make this an explore page that suggests profiles you are not following-->
+<div>
+  <!-- Profiles -->
+  <section class="columns is-mobile is-multiline">
+    <% posts.forEach(post => {%>
+      <div class="card column is-4-tablet is-4-mobile">
+        <div class="profileCard">
+          <!-- Profile Picture -->
+          <div class="card-image">
+            <figure class="image is4by4">
+              <img src="<%= post.addedBy.profilePicture %>" alt="Image">
+            </figure>
+          </div>
+          <!-- Name -->
+          <div class="columns is-multiline is-centered">
+            <div class="column is-12 is-centered">
+              <strong><%= post.addedBy.name %></strong>
+            </div>
+          </div>
+          <!-- Profile Picture -->
+          <div class="columns is-multiline">
+            <div class="column is-12">
+              <p>
+                <span><i class="fas fa-briefcase"></i> <%= post.addedBy.profession %></span><br>
+                <span><i class="far fa-building"></i><strong> <%= post.addedBy.employer %></strong></span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Username -->
+          <div class="columns">
+            <div class="column is-12"><a href="/profile/<%= post.addedBy._id %>"><%= post.addedBy.username %></a></div>
+          </div>
+          <div class="columns">
+            <div class="column is-12"><%= post.addedBy.bio %></div>
+          </div>
+
+        <div class="columns">
+          <div class="column is-12">
+            <%= post.addedBy.caption %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <% }) %>
+  </section>
+</div>

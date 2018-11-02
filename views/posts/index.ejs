@@ -15,7 +15,7 @@
                 <a href="/profile/<%= post.addedBy._id %>">
                   <p class="title is-6"><%= post.addedBy.username %></p>
                 </a>
-                <p class="subtitle is-6">Springfield, U.S.A</p>
+                <p class="subtitle is-6"><i class="fa fa-map-marker"></i> <%= post.addedBy.location %></p>
               </div>
             </div>
           </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="level-item has-text-centered">
                   <div>
-                    <a href="">
+                    <a href="/posts/show">
                       <i class="material-icons far fa-comment"></i>
                     </a>
                   </div>
@@ -54,9 +54,6 @@
                   <strong>32 Likes</strong>
                 </p>
                 <%= post.caption %>
-                <a>@simpstagramUser</a>.
-                <a href="#">#hashtag</a>
-                <a href="#">#simpstagram</a>
                 <br>
                 <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
               </div>
@@ -69,13 +66,13 @@
 
   <aside class="column is-3 is-hidden-mobile">
     <div class="panel">
-      <p class="panel-heading has-text-centered">username</p>
+      <p class="panel-heading has-text-centered"><%= locals.currentUser.username%></p>
       <a href="/profile" class="navbar-item">
       <a class="panel-block">
         <span class="panel-icon">
           <i class="fa fa-home"></i>
         </span>
-        <span class="name">Item</span>
+        <span class="name">Home</span>
       </a>
       <a class="panel-block">
         <span class="panel-icon">
