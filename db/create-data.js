@@ -122,7 +122,7 @@ const userData = [{
   password: 'pass'
 }, {
   username: 'donaldjtrump',
-  bio: 'Sorry losers and haters, but my I.Q. is one of the highest -and you all know it',
+  bio: 'Sorry losers and haters, but my I.Q. is one of the highest - and you all know it',
   name: 'Donald J Trump',
   profilePicture: 'https://i.imgur.com/WZENBu3.png',
   location: 'Washington D.C, U.S.A',
@@ -202,7 +202,7 @@ const userData = [{
   password: 'pass'
 }, {
   username: 'sideshowbob',
-  bio: 'Attempted murder?" Now really, what is that? Do they give a Nobel Prize for "attempted chemistry?".',
+  bio: '"Attempted murder?" Now really, what is that? Do they give a Nobel Prize for "attempted chemistry"?.',
   name: 'Dr. Robert Terwilliger, Jr.',
   profilePicture: 'https://i.imgur.com/kiBv7OT.png',
   location: 'Springfeld, U.S.A',
@@ -250,7 +250,7 @@ User
       },
       {
         image: 'https://i.imgur.com/y81yADD.png',
-        caption: 'On the local news again. No biggie.',
+        caption: 'Yeah that\'s me on TV again. No biggie.',
         addedBy: users[10]
       },
       {
