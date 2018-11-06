@@ -1,51 +1,107 @@
-<!-- Contact -->
-<section class="section columns" id="contact">
-  <div class="container">
-    <div class="section-heading">
-      <h3 class="title is-2">Post to Simpstagram</h3>
-    </div>
-    <br>
+<body>
+  <% if (locals.isLoggedIn) { %>
+    <section class="light is-info is-fullheight">
+      <div class="light-body">
+        <div class="container has-text-centered">
+          <div class="column is-6 is-offset-3">
+            <h1 class="title">
+              <%= locals.currentUser.username %>
+            </h1><br>
 
-    <div class="columns">
-      <div class="column is-6 is-offset-3">
-        <div class="box">
+            <!-- User Profile-->
+            <div class="box columns is-multiline">
+              <!-- User Profile Picture-->
+              <div class="column is-4">
+                <div class='header-icon user-profile-image column is-12'>
+                  <img class='is-rounded' alt='' src='<%= locals.currentUser.profilePicture %>'>
+                </div>
+              </div>
 
-          <form action="/posts" method="post">
-            <div class="field">
-              <label class="label" for="name">Caption</label>
-              <div class="control">
-                <input class="input" type="text" name="name" id="name" placeholder="Caption here">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-message"></i>
-                </span>
+              <div class="column is-8">
+                <div class="columns is-multiline">
+                  <div class='column is-12 name'>
+                    <p>
+                      <span><i class="far fa-user"></i><strong> <%= locals.currentUser.username %></strong></span><br>
+                      <span><i class="fas fa-map-marker-alt"></i> <%= locals.currentUser.location %></span><br>
+                    </p>
+                  </div>
+
+                  <div class='column is-12 name'>
+                    <p>
+                      <span><i class="fas fa-briefcase"></i><strong> <%= locals.currentUser.profession %></strong></span><br>
+                      <span><i class="far fa-building"></i> <%= locals.currentUser.employer %></span><br>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
+            <h2 class="subtitle">
+              To post to Simpstagram, fill out the form below.
+            </h2>
+            
+              <div class="columns is-multiline">
+                <div class="column is-12">
 
-            <div class="control">
-              <label class="label" for="name">Image (URL)>Email</label>
-              <div class="control has-icons-left">
-                <input class="input" type="text" name="image" id="name" placeholder="http://...">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-image"></i>
-                </span>
+                <form action="/posts" method="post">
+                  <div class="control">
+                    <label class="label" for="name">Caption</label>
+                    <div class="control has-icons-left">
+                      <input class="input" type="text" name="name" id="name" placeholder="Caption here">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-pen"></i>
+                      </span>
+                    </div>
+                  </div><br>
+
+
+                  <div class="control">
+                    <label class="label" for="name">Image (URL)</label>
+                    <div class="control has-icons-left">
+                      <input class="input" type="text" name="image" id="name" placeholder="http://...">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-image"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <br>
+
+                  <div class="field is-grouped has-text-centered">
+                    <div class="control">
+                      <input type="text" name="addedBy" value='<%= locals.currentUser._id%>' hidden>
+                      <button class="button is-light is-large"><span class="icon">
+                        <i class="fas fa-envelope"></i>
+                      </span>
+                      <span>Post</span>
+                    </button>
+                    <br>
+                  </div>
+                </form>
               </div>
             </div>
-            <br>
 
-            <div class="field is-grouped has-text-centered">
-              <div class="control">
-                <input type="text" name="addedBy" value='<%= locals.currentUser._id%>' hidden>
-                <button class="button is-link is-large"><span class="icon">
-                  <i class="fas fa-envelope"></i>
-                </span>
-                <span>Post</span>
-              </button>
-              <br>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
+
+    <% } else { %>
+
+
+      <section class="light is-info is-fullheight">
+        <div class="light-body">
+          <div class="container has-text-centered">
+            <div class="column is-6 is-offset-3">
+              <h1 class="title">
+                You must be logged in to post to Simpstagram
+              </h1><br>
+              <h2 class="subtitle">
+                Please <a href="/login">Sign In</a> Here
+              </h2>
+              <% } %>
+            </body>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -1,11 +1,51 @@
-<form action="/posts/<%= _id %>?_method=PUT" method="post">
-  <div class="control">
-    <label for="name">Caption</label>
-    <input name="caption" value="<%= caption %>" id="name" placeholder="Name here">
+
+
+
+<!-- Contact -->
+<section class="section columns" id="contact">
+  <div class="container">
+    <br>
+
+    <div class="columns">
+      <div class="column is-6 is-offset-3">
+        <div class="box">
+
+          <form action="/posts/<%= _id %>?_method=PUT" method="post">
+            <div class="field">
+              <label class="label" for="name">Caption</label>
+              <div class="control">
+                <input class="input" type="text" name="name" id="name" placeholder="Caption here">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-message"></i>
+                </span>
+              </div>
+            </div>
+
+
+            <div class="control">
+              <label class="label" for="name">Image (URL)</label>
+              <div class="control has-icons-left">
+                <input class="input" type="text" name="image" value="<%= image %>" id="name" placeholder="http://...">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-image"></i>
+                </span>
+              </div>
+            </div>
+            <br>
+
+            <div class="field is-grouped has-text-centered">
+              <div class="control">
+                <input type="text" name="addedBy" value='<%= locals.currentUser._id%>' hidden>
+                <button class="button is-light is-large"><span class="icon">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span>Post</span>
+              </button>
+              <br>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="control">
-    <label for="name">Image (URL)</label>
-    <input name="image" value="<%= image %>" id="name" placeholder="http://...">
-  </div>
-  <button>Update post</button>
-</form>
+</section>

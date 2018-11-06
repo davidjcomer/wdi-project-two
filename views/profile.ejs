@@ -31,20 +31,22 @@
 
           <div class="columns is-multiline">
 
+            <!--Posts -->
             <div class='column is-4 has-text-centered'>
               <p class='stat-val'><%= user.addedPosts.length %></p>
-              <p class='stat-key'>posts</p>
+              <p class='stat-key'><a href="/profile/<%= user._id %>">posts</a></p>
             </div>
+            
             <!--People this user is followed by -->
             <div class='column is-4 has-text-centered'>
               <p class='stat-val'><%= user.followers.length %></p>
-              <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/followers">followers</a></p>
+              <p class='stat-key'><a href="/profile/<%= user._id %>/followers">followers</a></p>
             </div>
 
             <!--People this user is following -->
             <div class='column is-4 has-text-centered'>
               <p class='stat-val'><%= user.profilesFollowing.length %></p>
-              <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/profilesFollowing">following</a></p>
+              <p class='stat-key'><a href="/profile/<%= user._id %>/profilesFollowing">following</a></p>
             </div>
 
 
@@ -85,7 +87,7 @@
       </div>
     </div>
 
-    <div class='columns is-mobile'>
+    <div class='columns is-mobile is-multiline'>
       <% user.addedPosts.forEach(post => { %>
         <div class='column is-4-tablet is-4-mobile'>
           <div class='profileCard'>

@@ -6,7 +6,7 @@
       </div>
 
       <!-- Current User Profile Picture-->
-      <div class="card column is-4">
+      <div class="column is-4">
         <div class='columns is-multiline is-centered'>
           <div class="column is-3">
             <div class='columns is-multiline is-centered'>
@@ -30,7 +30,7 @@
               </div>
             </div>
           </div>
-        </div>
+          </div>
 
         <!-- Poster Username-->
         <a href="<%= addedBy._id %>"><strong><%= addedBy.username %></strong></a><br>
@@ -38,10 +38,11 @@
         <% if (locals.isLoggedIn) { %>
           <div class="buttons">
             <form action="/posts/<%= _id %>?_method=DELETE" method="post">
-              <button class="button">Delete</button>
+              <button class="button comment-buttons">Delete</button>
             </form>
-            <a class="button" href="/posts/<%= _id %>/edit">Edit</a>
+            <a class="button comment-buttons" href="/posts/<%= _id %>/edit">Edit</a>
           </div>
+
 
         <!-- Poster Comment-->
         <div class ="columns is-multiline">
@@ -65,19 +66,18 @@
                   </form>
                 </div>
                 <% }) %>
+                <form method="POST" action="/posts/<%= _id %>/comments">
+                  <textarea class="input" type="text" name="content" placeholder="Leave a comment..."></textarea>
+                  <input name="user" type="hidden" value="<%= locals.currentUser.id %>"/><br>
+                  <button>Comment</button>
+                </form>
               </div>
             </div>
 
-              <div>
-                <form method="POST" action="/posts/<%= _id %>/comments">
-                  <textarea name="content"></textarea>
-                  <input name="user" type="hidden" value="<%= locals.currentUser.id %>"/><br>
-                  <button>Leave a Comment</button>
-                </form>
-              </div>
               <% } %>
             </div>
           </div>
+        </div>
 
         </div>
       </div>

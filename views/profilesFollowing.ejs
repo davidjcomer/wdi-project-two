@@ -20,8 +20,8 @@
 
             <div class="column is-12-desktop has-text-centered">
               <% if(locals.isLoggedIn) { %>
-                <% if(locals.currentUser.username !== user.username && !profilesFollowedBy.filter(id => id.toString() === locals.currentUser._id.toString()).length) { %>
-                  <form style="display: inline-block" action='/user/<%= _id %>/follow/<%= locals.currentUser._id %>' method='POST'>
+                <% if(locals.currentUser.username !== user.username && !user.profilesFollowing.filter(id => id.toString() === locals.currentUser._id.toString()).length) { %>
+                  <form style="display: inline-block" action='/user/<%= user._id %>/follow/<%= locals.currentUser._id %>' method='POST'>
                     <button class="button is-rounded">Follow</button>
                   </form>
                   <% } %>
@@ -31,39 +31,73 @@
 
           <div class="columns is-multiline">
 
+            <!--Posts -->
             <div class='column is-4 has-text-centered'>
               <p class='stat-val'><%= user.addedPosts.length %></p>
-              <p class='stat-key'>posts</p>
+              <p class='stat-key'><a href="/profile/<%= user._id %>">posts</a></p>
             </div>
+
+            <!--People this user is followed by -->
             <div class='column is-4 has-text-centered'>
               <p class='stat-val'><%= user.followers.length %></p>
-              <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/followers">followers</a></p>
+              <p class='stat-key'><a href="/profile/<%= user._id %>/followers">followers</a></p>
             </div>
+
+            <!--People this user is following -->
             <div class='column is-4 has-text-centered'>
               <p class='stat-val'><%= user.profilesFollowing.length %></p>
-              <p class='stat-key'><a href="/profile/<%= locals.currentUser._id %>/profilesFollowing">following</a></p>
+              <p class='stat-key'><a href="/profile/<%= user._id %>/profilesFollowing">following</a></p>
             </div>
+
+
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Followed By-->
+    <!-- Following-->
     <div class ="columns is-multiline">
-      <% user.profilesFollowing.forEach(user => { %>
-        <div class="column is-3">
-          <div class='columns is-multiline is-centered'>
-            <div class="column is-12">
-              <img src="<%= user.profilePicture %>" alt="">
+    <% user.profilesFollowing.forEach(user => { %>
+        <div class="column is-4-tablet is-4-mobile">
+          <div class="card profileCard">
+            <!-- Profile Picture -->
+            <div class="card-image">
+              <figure class="image is4by4">
+                <img src="<%= user.profilePicture %>" alt="Image">
+              </figure>
             </div>
-          </div>
-        </div>
+            <!-- Name -->
+            <div class="columns is-multiline is-centered">
+              <div class="column is-12 is-centered">
+                <p>
+                <strong><%= user.username %></strong><br>
+                <a href="/profile/<%= user._id %>">@<%= user.username %></a>
+                </p>
+              </div>
+            </div>
+            <!-- Profile Picture -->
+            <div class="columns is-multiline">
+              <div class="column is-12">
+                <p>
+                  <span><i class="fas fa-briefcase"></i> <%= user.profession %></span><br>
+                  <span><i class="far fa-building"></i><strong> <%= user.employer %></strong></span><br>
+                </p><br>
+              </div>
+            </div>
 
-        <div class="column is-9">
-          <div class='columns is-multiline is-centered'>
-            <div class="column is-12">
-              <span style="font-weight: bold;"><%= user.username %></span>
+            <!-- Username -->
+            <div class="columns">
+              <p class='bioCard exploreBio'>
+                <strong>About <%= user.name %></strong><br>
+                <em>"<%= user.bio %>"</em>
+              </p>
             </div>
-            <% }) %>
+
+            <div class="columns">
+              <div class="column is-12">
+                <%= user.caption %>
+              </div>
+            </div>
           </div>
         </div>
+        <% }) %>

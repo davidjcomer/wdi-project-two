@@ -55,7 +55,8 @@
                 </p>
                 <%= post.caption %>
                 <br>
-                <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
+                <br>
+                <time datetime="2018-1-1"><em><%= post.time %></em></time>
               </div>
             </div>
           </div>
@@ -64,9 +65,10 @@
       <% }) %>
   </div>
 
+<!--
   <aside class="column is-3 is-hidden-mobile">
     <div class="panel">
-      <p class="panel-heading has-text-centered"><%= locals.currentUser.username%></p>
+      <p class="panel-heading has-text-centered">< locals.currentUser.username%></p>
       <a href="/profile" class="navbar-item">
       <a class="panel-block">
         <span class="panel-icon">
@@ -119,4 +121,5 @@
       </a>
     </div>
   </aside>
+  -->
 </main>
