@@ -230,6 +230,16 @@ const userData = [{
   employer: 'First Church of Springfield',
   email: 'tlovejoy@simpstagram.com',
   password: 'pass'
+}, {
+  username: 'lurleenlumpkin',
+  bio: 'Stream my latest music on iTunes: "I\'m Basting a Turkey with my Tears", "Don\'t Look Up my Dress Unless You Mean It", "I\'m Sick of Your Lyin\' Lips and False Teeth"',
+  name: 'Lurleen Lumpkin',
+  profilePicture: 'https://i.imgur.com/tRTDLW7.png',
+  location: 'Springfeld, U.S.A',
+  profession: 'Musician',
+  employer: 'Bleeding Fingers Music',
+  email: 'llumpkin@simpstagram.com',
+  password: 'pass'
 }];
 
 
