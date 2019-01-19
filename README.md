@@ -25,7 +25,7 @@ Web app must:
 
 # Approach
 
-## Page Structure
+## Screenshots
 
 The Web App.
 1. <strong>Log In/Sign Up</strong><br> A simple form prompting the user to either create an account or log in using stored credentials.
@@ -80,11 +80,9 @@ Each time the user clicks follow, the target user is added to the `profilesFollo
 
 
 # Future Revision
-Extras
-<strong>Image Upload</strong>
 
-* Allows users to upload images with Filestack.
+* Allow users to upload images with Filestack.
 
-* Let users 'like' photos
+* Let users 'like' photos.
 
 * Organise explore section relative to how many friends you have in common. ie, someone who follows 10 people that you do will appear above someone who only follows 5.

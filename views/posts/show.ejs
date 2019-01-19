@@ -33,7 +33,7 @@
           </div>
 
         <!-- Poster Username-->
-        <a href="<%= addedBy._id %>"><strong><%= addedBy.username %></strong></a><br>
+        <a href="/profile/<%= addedBy._id %>"><strong><%= addedBy.username %></strong></a><br>
         <h1><%= caption %></h1>
         <% if (locals.isLoggedIn) { %>
           <div class="buttons">
