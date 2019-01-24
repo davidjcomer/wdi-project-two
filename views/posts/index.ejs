@@ -59,10 +59,8 @@
               <div class="media-content">
                 <a style="color: blue;"class="title is-6" href="/profile/<%= post.addedBy._id %>"><%= post.addedBy.username %></a>
                 <br>
-                <p>
-                  <strong><%= post.likes.length %> likes</strong>
-                </p>
-                <%= post.caption %>
+                <p><%= post.likes.length %> likes</p>
+                <strong><%= post.caption %></strong>
                 <br>
                 <br>
                 <em><time datetime="2018-1-1"><%= post.time %></time></em>
