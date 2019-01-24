@@ -111,7 +111,7 @@ function like(req, res, next) {
   Post
     .findById(req.params.postId)
     .then(post => {
-      post.like.push(req.params.currentUserId);
+      post.likes.push(req.params.currentUserId);
       post.save();
       console.log(post);
       res.redirect('posts');
