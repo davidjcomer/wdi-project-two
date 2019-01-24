@@ -36,14 +36,15 @@
                   <% if(locals.isLoggedIn) { %>
                     <% if(!post.likes.filter(id => id.toString() === locals.currentUser._id.toString()).length) { %>
                       <form action='/posts/<%= post._id %>/likes/<%= locals.currentUser._id %>' method='POST'>
-                        <button class="button is-small"><i class="material-icons far fa-heart"></i> <%= post.likes.length %></button>
+                        <button class="button is-small"><i class="material-icons far fa-heart"></i><%= post.likes.length %></button>
                       </form>
                       <% } else { %>
-                        <button  class="button is-small"><i class="material-icons far fa-heart"></i> <%= post.likes.length %></button>
+                        <button  class="button is-small"><i class="material-icons far fa-heart"></i><%= post.likes.length %></button>
                         <% } %>
                         <% } else { %>
                           <p>Likes : <%= post.likes.length %></p>
                           <%  }%>
+                          <a href="/posts/<%= post.addedBy.id %>"><p class="title is-4"> <%= post.addedBy.username %></p></a>
                 </div>
                 <div class="level-item has-text-centered">
                   <div>
@@ -60,7 +61,7 @@
                 <a class="title is-6" href="/profile/<%= post.addedBy._id %>"><%= post.addedBy.username %></a>
                 <br>
                 <p>
-                  <strong><%= post.likes.length %></strong>
+                  <strong>32 Likes</strong>
                 </p>
                 <%= post.caption %>
                 <br>
