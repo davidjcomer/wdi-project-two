@@ -45,27 +45,27 @@
                           <p>Likes : <%= post.likes.length %></p>
                           <%  }%>
                 </div>
-                <div class="level-item has-text-centered">
+                <!-- <div class="level-item has-text-centered">
                   <div>
                     <a href="/posts/show">
                       <i class="material-icons far fa-comment"></i>
                     </a>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
             <!-- Post Header -->
             <div class="content">
               <div class="media-content">
-                <a class="title is-6" href="/profile/<%= post.addedBy._id %>"><%= post.addedBy.username %></a>
+                <a style="color: blue;"class="title is-6" href="/profile/<%= post.addedBy._id %>"><%= post.addedBy.username %></a>
                 <br>
                 <p>
-                  <strong>32 Likes</strong>
+                  <strong><%= post.likes.length %> likes</strong>
                 </p>
                 <%= post.caption %>
                 <br>
                 <br>
-                <time datetime="2018-1-1"><em><%= post.time %></em></time>
+                <em><time datetime="2018-1-1"><%= post.time %></time></em>
               </div>
             </div>
           </div>
