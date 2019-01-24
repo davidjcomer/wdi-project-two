@@ -60,6 +60,9 @@ router.delete('/posts/:postId/comments/:commentId', secureRoute, commentControll
 //FOLLOW ROUTE
 router.post('/user/:userId/follow/:currentUserId', secureRoute, userController.followProfile);
 
+//LIKE ROUTE:
+router.post('/posts/:postId/like/:currentUserId', secureRoute, postController.like);
+
 //Route to show all the users who we are following
 router.get('/profile/:id/profilesFollowing', secureRoute, userController.profilesFollowingIndex);
 

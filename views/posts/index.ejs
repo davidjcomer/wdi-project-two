@@ -28,13 +28,23 @@
             </a>
           </div>
           <!-- Post Icons -->
+
           <div class="card-content">
             <div class="level is-mobile">
               <div class="level-left">
                 <div class="level-item has-text-centered">
-                  <a href="">
-                    <i class="material-icons far fa-heart"></i>
-                  </a>
+                  <% if(locals.isLoggedIn) { %>
+                    <% if(!post.like.filter(id => id.toString() === locals.currentUser._id.toString()).length) { %>
+                      <form action='/posts/<%= post._id %>/like/<%= locals.currentUser._id %>' method='POST'>
+                        <button class="button is-small"><i class="material-icons far fa-heart"></i><%= post.like.length %></button>
+                      </form>
+                      <% } else { %>
+                        <button  class="button is-small"><i class="material-icons far fa-heart"></i><%= post.like.length %></button>
+                        <% } %>
+                        <% } else { %>
+                          <p>Likes : <%= post.like.length %></p>
+                          <%  }%>
+                          <a href="/pages/<%= post.addedBy.id %>" id="anchor"><p class="title is-4"> <%= post.addedBy.username %></p></a>
                 </div>
                 <div class="level-item has-text-centered">
                   <div>

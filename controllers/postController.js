@@ -107,6 +107,21 @@ function deleteRoute(req, res, next) {
     });
 }
 
+function like(req, res, next) {
+  Post
+    .findById(req.params.postId)
+    .then(post => {
+      post.like.push(req.params.currentUserId);
+      post.save();
+      console.log(post);
+      res.redirect('posts');
+    })
+    .catch(err => {
+      console.log(err);
+      next();
+    });
+}
+
 module.exports = {
   indexRoute: indexRoute,
   exploreRoute: exploreRoute,
@@ -115,5 +130,6 @@ module.exports = {
   createRoute: createRoute,
   editRoute: editRoute,
   updateRoute: updateRoute,
-  deleteRoute: deleteRoute
+  deleteRoute: deleteRoute,
+  like: like
 };
