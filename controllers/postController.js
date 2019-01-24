@@ -114,7 +114,7 @@ function like(req, res, next) {
       post.likes.push(req.params.currentUserId);
       post.save();
       console.log(post);
-      res.redirect('posts');
+      res.redirect('/posts');
     })
     .catch(err => {
       console.log(err);
